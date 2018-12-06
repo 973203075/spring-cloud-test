@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/973203075/springcloudconfig.git
+          username: 自己账号
+          password: 密码
+      label: master
+server:
+  port: 2001
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/,http://localhost:1002/eureka/,http://localhost:1003/eureka/

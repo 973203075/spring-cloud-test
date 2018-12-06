@@ -1,0 +1,22 @@
+my:
+  name: forezp
+  age: 12
+  number: ${random.int}
+  uuid: ${random.uuid}
+  max: ${random.int(10)}
+  value: ${random.value}
+  greeting: hi,i'm ${my.name}
+ww: ww
+management:
+  server:
+    port: 9001
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+logging:
+  level:
+    root: info

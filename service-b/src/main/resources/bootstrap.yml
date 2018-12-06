@@ -1,0 +1,40 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/,http://localhost:1002/eureka/,http://localhost:1003/eureka/
+  instance:
+    status-page-url-path: swagger-ui.html
+spring:
+  cloud:
+    config:
+      label: master
+      discovery:
+        enabled: true
+        service-id: config-server
+      profile: b
+      uri: http://localhost:2001
+  zipkin:
+    base-url: http://localhost:6001
+  sleuth:
+    sampler:
+      probability: 1
+  application:
+    name: service-b
+  boot:
+    admin:
+      client:
+        name: service-b
+        service-url: http://localhost:3002
+        url: http://localhost:7001
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+swagger:
+  base-package: com.example.serviceb
+  ui-config:
+    submit-methods: get
+info:
+  version: 1.0
+  owner: tkk

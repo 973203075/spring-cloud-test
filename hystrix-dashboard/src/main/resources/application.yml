@@ -1,0 +1,22 @@
+server:
+  port: 4001
+spring:
+  application:
+    name: turbine
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/,http://localhost:1002/eureka/,http://localhost:1003/eureka/
+  instance:
+    status-page-url-path: hystrix
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info","turbine.stream","hystrix.stream"]
+turbine:
+  app-config: service-a, service-b
+  combine-host-port: true
+  cluster-name-expression: new String('default')
+  aggregator:
+    cluster-config: default

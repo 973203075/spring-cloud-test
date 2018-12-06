@@ -1,0 +1,37 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1001/eureka/,http://localhost:1002/eureka/,http://localhost:1003/eureka/
+  instance:
+    status-page-url-path: swagger-ui.html
+spring:
+  zipkin:
+    base-url: http://localhost:6001
+  sleuth:
+    sampler:
+      probability: 1
+  application:
+    name: service-c
+  boot:
+    admin:
+      client:
+        name: service-c
+        service-url: http://localhost:3004
+        url: http://localhost:7001
+  cloud:
+    config:
+      uri: http://localhost:2001
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+swagger:
+  base-package: com.example.servicec
+  ui-config:
+    submit-methods: get
+server:
+  port: 3004
+info:
+  version: 1.0
+  owner: tkk
